@@ -1,18 +1,24 @@
 import random
 
-students = ['Tomas','Sher','Sal','Jose','Ryan','Lawrence','Mel','Senay','Christie','Vincent','Caitlyn','Adeline','Ray','Mike']
+
+students = ['Tomas', 'Sher', 'Sal', 'Jose', 'Ryan', 'Lawrence', 'Mel', 'Senay', 'Christie', 'Vincent', 'Caitlyn', 
+            'Adeline', 'Ray', 'Mike']
+
 
 def pick(my_students):
     my_students.remove(student := random.choice(my_students))
     return student
 
-more = 'y'
 
-while students and len(more) and not more[0] in 'nN':
-    winner = pick(students)
-    print("And the winner is: " + winner + "!")
-    more = input("More? [y]/n: ")
-    if not len(more):
-        more = 'y'
+def main():
+    choice = 'y'
+    while students and choice[0] not in 'nN':
+        winner = pick(students)
+        print("And the winner is: " + winner + "!")
+        choice = input("More? [y]/n: ") or 'y'
 
-print('Thanks for playing!')
+    print('Thanks for playing!')
+
+
+if __name__ == '__main__':
+    main()
